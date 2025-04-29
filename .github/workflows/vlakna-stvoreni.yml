@@ -1,4 +1,4 @@
-name: 'Upload Episode from YouTube To Anchor.Fm'
+name: 'Upload Episode from YouTube To Spotify'
 
 on:
   push:
@@ -11,14 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Upload Episode from YouTube To Anchor.Fm
-        uses: Schrodinger-Hat/youtube-to-anchorfm@v2.5.0
+      - name: Upload Episode from YouTube To Spotify
+        uses: Schroedinger-Hat/youtube-to-spotify@v2.5.0
         env:
-          ANCHOR_LOGIN: false
-          ANCHOR_EMAIL: ${{ secrets.ANCHOR_EMAIL }}
-          ANCHOR_PASSWORD: ${{ secrets.ANCHOR_PASSWORD }}
           SPOTIFY_EMAIL: ${{ secrets.SPOTIFY_EMAIL }}
           SPOTIFY_PASSWORD: ${{ secrets.SPOTIFY_PASSWORD }}
           EPISODE_PATH: /github/workspace
           LOAD_THUMBNAIL: false
           SET_PUBLISH_DATE: true
+          USER_AGENT: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
